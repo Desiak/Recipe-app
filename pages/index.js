@@ -2,7 +2,7 @@ import Layout from "../components/Layout";
 import { useEffect } from "react";
 
 const Home = () => {
-  const url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Breakfast";
+  const url = "https://www.themealdb.com/api/json/v1/1/categories.php";
 
   const getData = async () => {
     const data = await fetch(url);

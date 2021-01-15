@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 const Layout = (props) => {
   return (
     <div
-      class="main "
+      className="main"
       style={{
         backgroundImage:
           "url(https://lamtourspanama.com/wp-content/uploads/2020/01/food-pattern-free-img.png)",

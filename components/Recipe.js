@@ -13,27 +13,22 @@ const Recipe = (props) => {
       ingrMeasures.push(props.meal[ingredient]);
     }
   }
-  const cuisine =
-    props.meal.strArea !== undefined ? `Cuisine: ${props.meal.strArea}` : "";
+
   return (
-    <li className="card">
-      <div className="card-img">
-        <img
-          src={props.meal.strMealThumb}
-          className="card-img-top"
-          alt="recipe-image"
-        ></img>
-      </div>
-      <div className="card-body">
-        <p className="recipe-cuisine">{cuisine}</p>
-        <h5 className="recipe-name">{recipeTitle}</h5>
-        <button className="btn btn-primary">
-          <Link href={`${props.meal.idMeal}`}>
-            <span>Zobacz</span>
-          </Link>
-        </button>
-      </div>
-    </li>
+    <Link href={`/recipe/${props.meal.idMeal}`}>
+      <li className="card hover-shadow" style={{ cursor: "pointer" }}>
+        <div className="card-img">
+          <img
+            src={props.meal.strMealThumb}
+            className="card-img-top"
+            alt="recipe-image"
+          ></img>
+        </div>
+        <div className="card-body d-flex align-items-center justify-content-center">
+          <h5 className="recipe-name text-center m-0">{recipeTitle}</h5>
+        </div>
+      </li>
+    </Link>
   );
 };
 
