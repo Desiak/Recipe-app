@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-5 sticky-top">
       <div className="container-fluid">
         <Link href="/">
           <a className="navbar-brand">First Next!</a>
@@ -26,7 +26,7 @@ const Navbar = () => {
                   style={{
                     textTransform: "capitalize",
                     boxShadow: "none",
-                    fontSize: "1.1em",
+                    fontSize: "1.05em",
                   }}
                 >
                   Meat
@@ -53,7 +53,7 @@ const Navbar = () => {
 
                   <li>
                     <Link href="/category/pork">
-                      <a className="dropdown-item">Prok</a>
+                      <a className="dropdown-item">Pork</a>
                     </Link>
                   </li>
                 </ul>

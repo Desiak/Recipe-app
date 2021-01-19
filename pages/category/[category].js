@@ -5,10 +5,9 @@ import { useRouter } from "next/router";
 
 const Category = () => {
   const router = useRouter();
+
   const { category } = router.query;
-  console.log(category);
   const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
-  console.log(url);
   let [results, setResults] = useState([]);
 
   const getData = async () => {
@@ -29,6 +28,7 @@ const Category = () => {
   useEffect(() => {
     getData();
   }, [category]);
+
   return (
     <Layout>
       <div>
@@ -39,6 +39,7 @@ const Category = () => {
             gridGap: "50px",
             gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
             padding: "5%",
+            margin: "0",
           }}
         >
           {results}

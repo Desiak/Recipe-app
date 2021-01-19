@@ -27,6 +27,7 @@ export default function FullRecipe() {
     }
   }, [id]);
   if (meal) {
+    console.log(meal);
     for (const key in meal) {
       if (key.includes("Ingredient")) {
         if (meal[key] !== "" && meal[key] !== null) {
