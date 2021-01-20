@@ -6,8 +6,13 @@ import { useRouter } from "next/router";
 const Category = () => {
   const router = useRouter();
 
-  const { category } = router.query;
-  const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
+  const { category, s, c, a } = router.query;
+  console.log(router);
+  const url = `https://www.themealdb.com/api/json/v1/1/${category}?${
+    s ? `s=${s}` : c ? `c=${c}` : `a=${a}`
+  }`;
+  console.log(url);
+
   let [results, setResults] = useState([]);
 
   const getData = async () => {
@@ -27,12 +32,15 @@ const Category = () => {
 
   useEffect(() => {
     getData();
-  }, [category]);
+  }, [category, s, c]);
 
   return (
     <Layout>
       <div>
-        <h1 style={{ textTransform: "capitalize" }}>{category}</h1>
+        <h1>
+          Results for: {c}
+          {s} {a}
+        </h1>
         <ul
           style={{
             display: "grid",

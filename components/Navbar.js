@@ -36,23 +36,23 @@ const Navbar = () => {
                   aria-labelledby="dropdownMenuButton"
                 >
                   <li>
-                    <Link href="/category/chicken">
+                    <Link href="/category/filter.php?c=chicken">
                       <a className="dropdown-item">Chicken</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/category/beef">
+                    <Link href="/category/filter.php?c=beef">
                       <a className="dropdown-item">Beef</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/category/seafood">
+                    <Link href="/category/filter.php?c=seafood">
                       <a className="dropdown-item">Seafood</a>
                     </Link>
                   </li>
 
                   <li>
-                    <Link href="/category/pork">
+                    <Link href="/category/filter.php?c=pork">
                       <a className="dropdown-item">Pork</a>
                     </Link>
                   </li>
@@ -61,18 +61,18 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item">
-              <Link href="/category/vegetarian">
+              <Link href="/category/filter.php?c=vegetarian">
                 <a className="nav-link">Vegetarian</a>
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link href="/category/pasta">
+              <Link href="/category/filter.php?c=pasta">
                 <a className="nav-link">Pasta</a>
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/category/dessert">
+              <Link href="/category/filter.php?c=dessert">
                 <a className="nav-link">Desserts</a>
               </Link>
             </li>

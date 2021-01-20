@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 //search, categories,
 const Home = () => {
@@ -72,6 +73,8 @@ const Home = () => {
     "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/breakfast-in-bed-recipe-1586975778.jpg?crop=0.502xw:1.00xh;0,0&resize=640:*",
   ];
   const [bonusCategories, setBonusCategories] = useState([]);
+  const [inputQuery, setInputQuery] = useState("");
+
   const getData = async () => {
     const data = await fetch(url);
     const res = await data.json();
@@ -82,12 +85,15 @@ const Home = () => {
     ]);
   };
 
+  const handleInputChange = (e) => {
+    console.log(e.target.value);
+    setInputQuery(e.target.value);
+  };
+
   useEffect(() => {
     getData();
     return () => {};
   }, []);
-
-  useEffect(() => {}, [bonusCategories]);
 
   if (bonusCategories.length > 0) {
     return (
@@ -120,9 +126,12 @@ const Home = () => {
                 fontSize: "0.8em",
               }}
               id="searchInput"
+              onChange={(e) => handleInputChange(e)}
             />
             <button type="button" class="btn btn-dark btn-lg">
-              search
+              <Link href={`/category/search.php?s=${inputQuery}`}>
+                <a className="nav-link px-4 text-white">Search</a>
+              </Link>
             </button>
           </div>
 
@@ -136,7 +145,7 @@ const Home = () => {
             src="https://cdn.pixabay.com/photo/2016/11/29/11/15/breakfast-1869132_1280.jpg"
           ></img>
         </div>
-        <div className="section about-section text-center py-5">
+        <div className="section about-section text-center py-5 ">
           <h2 class=" display-5 mb-4">About</h2>
 
           <p class="w-50 mx-auto">
@@ -166,31 +175,33 @@ const Home = () => {
           >
             {cuisinesList.map((cuisine, index) => {
               return (
-                <li
-                  class="card"
-                  key={cuisine.country + index}
-                  style={{
-                    backgroundImage: `url(${cuisine.imageUrl})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    height: "200px",
-                    position: "relative",
-                    cursor: "pointer",
-                  }}
-                >
-                  <h4
-                    class="text-center p-3 text-white mb-0"
+                <Link href={`/category/filter.php?a=${cuisine.country}`}>
+                  <li
+                    class="card"
+                    key={cuisine.country + index}
                     style={{
-                      backgroundColor: "rgba(0,0,0,0.5)",
-                      position: "absolute",
-                      bottom: "0",
-                      width: "100%",
-                      letterSpacing: "0.1em",
+                      backgroundImage: `url(${cuisine.imageUrl})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      height: "200px",
+                      position: "relative",
+                      cursor: "pointer",
                     }}
                   >
-                    {cuisine.country}
-                  </h4>
-                </li>
+                    <h4
+                      class="text-center p-3 text-white mb-0"
+                      style={{
+                        backgroundColor: "rgba(0,0,0,0.5)",
+                        position: "absolute",
+                        bottom: "0",
+                        width: "100%",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      {cuisine.country}
+                    </h4>
+                  </li>
+                </Link>
               );
             })}
           </ul>
@@ -231,7 +242,15 @@ const Home = () => {
                     >
                       <h3>{cat.strCategory}s</h3>
                       <p className="my-3 p-3">{cat.strCategoryDescription}</p>
-                      <button className="btn btn-dark">Find recipes</button>
+                      <button className="btn btn-dark">
+                        <Link
+                          href={`/category/filter.php?c=${cat.strCategory}`}
+                        >
+                          <a className="nav-link px-4 text-white">
+                            Find recipes
+                          </a>
+                        </Link>
+                      </button>
                     </div>
                   </div>
                 </li>
@@ -242,7 +261,7 @@ const Home = () => {
       </Layout>
     );
   } else {
-    return <div>Nie działa</div>;
+    return <div>Loading...</div>;
   }
 };
 
