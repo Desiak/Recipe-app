@@ -36,23 +36,23 @@ const Navbar = () => {
                   aria-labelledby="dropdownMenuButton"
                 >
                   <li>
-                    <Link href="/category/filter.php?c=chicken">
+                    <Link href="/site/chicken/1?f=filter.php&&crit=c">
                       <a className="dropdown-item">Chicken</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/category/filter.php?c=beef">
+                    <Link href="/site/beef/1?f=filter.php&&crit=c">
                       <a className="dropdown-item">Beef</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/category/filter.php?c=seafood">
+                    <Link href="/site/seafood/1?f=filter.php&&crit=c">
                       <a className="dropdown-item">Seafood</a>
                     </Link>
                   </li>
 
                   <li>
-                    <Link href="/category/filter.php?c=pork">
+                    <Link href="/site/pork/1?f=filter.php&&crit=c">
                       <a className="dropdown-item">Pork</a>
                     </Link>
                   </li>
@@ -61,18 +61,18 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item">
-              <Link href="/category/filter.php?c=vegetarian">
+              <Link href="/site/vegetarian/1?f=filter.php&&crit=c">
                 <a className="nav-link">Vegetarian</a>
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link href="/category/filter.php?c=pasta">
+              <Link href="/site/pasta/1?f=filter.php&&crit=c">
                 <a className="nav-link">Pasta</a>
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/category/filter.php?c=dessert">
+              <Link href="/site/dessert/1?f=filter.php&&crit=c">
                 <a className="nav-link">Desserts</a>
               </Link>
             </li>

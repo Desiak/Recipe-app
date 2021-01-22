@@ -129,7 +129,7 @@ const Home = () => {
               onChange={(e) => handleInputChange(e)}
             />
             <button type="button" class="btn btn-dark btn-lg">
-              <Link href={`/category/search.php?s=${inputQuery}`}>
+              <Link href={`/site/${inputQuery}/1?f=search.php&&crit=s`}>
                 <a className="nav-link px-4 text-white">Search</a>
               </Link>
             </button>
@@ -161,7 +161,7 @@ const Home = () => {
 
         <div className="section section-cuisines">
           <h2 class="text-center display-5">
-            Explore a foreign cuisine of your choice!
+            Explore a cuisine of your choice!
           </h2>
           <ul
             className="list-group p-5"
@@ -175,7 +175,7 @@ const Home = () => {
           >
             {cuisinesList.map((cuisine, index) => {
               return (
-                <Link href={`/category/filter.php?a=${cuisine.country}`}>
+                <Link href={`/site/${cuisine.country}/1?f=filter.php&&crit=a`}>
                   <li
                     class="card"
                     key={cuisine.country + index}
@@ -244,7 +244,9 @@ const Home = () => {
                       <p className="my-3 p-3">{cat.strCategoryDescription}</p>
                       <button className="btn btn-dark">
                         <Link
-                          href={`/category/filter.php?c=${cat.strCategory}`}
+                          // href={`/category/filter.php?c=${cat.strCategory}?page=1`}
+                          // href="site/Side/1?f=filter.php"
+                          href={`site/${cat.strCategory}/1?f=filter.php&&crit=c`}
                         >
                           <a className="nav-link px-4 text-white">
                             Find recipes
