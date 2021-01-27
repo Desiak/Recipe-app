@@ -42,7 +42,7 @@ const Page = () => {
   useEffect(() => {
     if (router) {
       const url = `https://www.themealdb.com/api/json/v1/1/${f}?${crit}=${category}`;
-
+      console.log(crit);
       getData(url);
     }
   }, [f, category, page]);
@@ -72,9 +72,33 @@ const Page = () => {
     return pageLinks;
   };
 
+  const switchResultsHeader = () => {
+    let critLabel = "";
+    console.log(crit, typeof f);
+    switch (crit) {
+      case "c":
+        critLabel = "Category: ";
+        break;
+      case "a":
+        critLabel = "Cuisine: ";
+
+        break;
+      case "s":
+        critLabel = "Results for: ";
+
+        break;
+      default:
+        critLabel = "NOTIHNG";
+    }
+    return critLabel;
+  };
+
   return (
     <div>
-      <h1>Results for: {category}</h1>
+      <h1>
+        {switchResultsHeader()}{" "}
+        <span className="text-capitalize">{category}</span>
+      </h1>
       <p className="results-total">Found {recipesTotal} recipes</p>
       <p className="current-results">
         {recipesTotal > 12

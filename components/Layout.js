@@ -69,24 +69,40 @@ const Layout = (props) => {
                 Follow on social media:
               </h5>
               <MDBRow className="h-75">
-                <MDBCol md="6" className="align-self-center">
-                  <MDBBtn color="dark">
+                <MDBCol sm="6" className="align-self-center ">
+                  <MDBBtn
+                    color="dark"
+                    className="w-100 text-center"
+                    href="https://facebook.com/"
+                  >
                     <MDBIcon fab icon="facebook" size="5x" />
                   </MDBBtn>
                 </MDBCol>
 
-                <MDBCol md="6" className="align-self-center">
-                  <MDBBtn color="dark">
+                <MDBCol sm="6" className="align-self-center">
+                  <MDBBtn
+                    color="dark"
+                    className="w-100 text-center"
+                    href="https://instagram.com/"
+                  >
                     <MDBIcon fab icon="instagram" size="5x" />
                   </MDBBtn>
                 </MDBCol>
-                <MDBCol md="6" className="align-self-center">
-                  <MDBBtn color="dark">
-                    <MDBIcon fab icon="youtube" size="5x" />
+                <MDBCol sm="6" className="align-self-center">
+                  <MDBBtn
+                    color="dark"
+                    className="w-100 text-center"
+                    href="https://youtube.com/"
+                  >
+                    <MDBIcon fab icon="youtube text-center" size="5x" />
                   </MDBBtn>
                 </MDBCol>
-                <MDBCol md="6" className="align-self-center">
-                  <MDBBtn color="dark">
+                <MDBCol sm="6" className="align-self-center">
+                  <MDBBtn
+                    color="dark"
+                    className="w-100 text-center"
+                    href="https://twitter.com/"
+                  >
                     <MDBIcon fab icon="twitter" size="5x" />
                   </MDBBtn>
                 </MDBCol>

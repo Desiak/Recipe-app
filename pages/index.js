@@ -8,10 +8,6 @@ import {
   MDBRow,
 } from "mdbreact";
 
-export function reportWebVitals(metric) {
-  console.log(metric);
-}
-
 const Home = () => {
   const url = "https://www.themealdb.com/api/json/v1/1/categories.php";
   const cuisinesList = [
@@ -254,15 +250,11 @@ const Home = () => {
                     >
                       <h3>{cat.strCategory}s</h3>
                       <p className="my-3 p-3">{cat.strCategoryDescription}</p>
-                      <MDBBtn color="dark">
-                        <Link
-                          href={`site/${cat.strCategory}/1?f=filter.php&&crit=c`}
-                        >
-                          <a className="nav-link px-4 text-white">
-                            Find recipes
-                          </a>
-                        </Link>
-                      </MDBBtn>
+                      <Link
+                        href={`site/${cat.strCategory}/1?f=filter.php&&crit=c`}
+                      >
+                        <MDBBtn color="dark">Find recipes</MDBBtn>
+                      </Link>
                     </MDBCol>
                   </MDBRow>
                 </MDBListGroupItem>

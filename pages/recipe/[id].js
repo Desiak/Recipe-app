@@ -9,6 +9,7 @@ import {
   MDBTableBody,
   MDBTableHead,
   MDBIframe,
+  MDBBadge,
 } from "mdbreact";
 
 export default function FullRecipe() {
@@ -53,7 +54,7 @@ export default function FullRecipe() {
 
     return (
       <MDBContainer>
-        <MDBRow className="justify-content-center text-center">
+        <div className="justify-content-center text-center">
           <img
             src={meal.strMealThumb}
             alt="meal image"
@@ -64,15 +65,16 @@ export default function FullRecipe() {
 
           <h1>{meal.strMeal}</h1>
           {mealTags.map((tag) => (
-            <span
+            <MDBBadge
+              color="warning"
               className="badge bg-warning m-2 py-2"
-              style={{ display: "inline", width: "100px" }}
+              style={{ width: "100px" }}
               key={tag}
             >
               {tag}
-            </span>
+            </MDBBadge>
           ))}
-        </MDBRow>
+        </div>
         <MDBRow className="my-3 align-items-center">
           <MDBCol md="4">
             <h2 className="mb-5 text-center">Ingredients table</h2>
