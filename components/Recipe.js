@@ -1,5 +1,13 @@
 import React from "react";
 import Link from "next/link";
+import {
+  MDBListGroupItem,
+  MDBCard,
+  MDBCardImage,
+  MDBCardBody,
+  MDBCardTitle,
+} from "mdbreact";
+
 const Recipe = (props) => {
   const recipeTitle = props.meal.strMeal;
   let ingredients = [];
@@ -15,20 +23,23 @@ const Recipe = (props) => {
   }
 
   return (
-    <Link href={`/recipe/${props.meal.idMeal}`}>
-      <li className="card hover-shadow" style={{ cursor: "pointer" }}>
-        <div className="card-img">
-          <img
+    <MDBListGroupItem
+      className="hover-shadow p-0"
+      style={{ cursor: "pointer" }}
+    >
+      <Link href={`/recipe/${props.meal.idMeal}`}>
+        <MDBCard className="h-100">
+          <MDBCardImage
             src={props.meal.strMealThumb}
             className="card-img-top"
             alt="recipe-image"
-          ></img>
-        </div>
-        <div className="card-body d-flex align-items-center justify-content-center">
-          <h5 className="recipe-name text-center m-0">{recipeTitle}</h5>
-        </div>
-      </li>
-    </Link>
+          ></MDBCardImage>
+          <MDBCardBody className="d-flex align-items-center justify-content-center">
+            <MDBCardTitle className="text-center">{recipeTitle}</MDBCardTitle>
+          </MDBCardBody>
+        </MDBCard>
+      </Link>
+    </MDBListGroupItem>
   );
 };
 

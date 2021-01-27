@@ -1,8 +1,17 @@
-import Layout from "../components/Layout";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import {
+  MDBBtn,
+  MDBListGroup,
+  MDBListGroupItem,
+  MDBCol,
+  MDBRow,
+} from "mdbreact";
 
-//search, categories,
+export function reportWebVitals(metric) {
+  console.log(metric);
+}
+
 const Home = () => {
   const url = "https://www.themealdb.com/api/json/v1/1/categories.php";
   const cuisinesList = [
@@ -85,58 +94,52 @@ const Home = () => {
     ]);
   };
 
-  const handleInputChange = (e) => {
-    console.log(e.target.value);
-    setInputQuery(e.target.value);
-  };
-
   useEffect(() => {
     getData();
-    return () => {};
   }, []);
 
   if (bonusCategories.length > 0) {
     return (
-      <Layout>
+      <div>
         <div
           className="section search-section"
           style={{ position: "relative" }}
         >
           <div
-            class="d-flex justify-content-center align-items-center flex-wrap p-4"
+            className="d-flex justify-content-center align-items-center flex-wrap p-4"
             style={{
               position: "absolute",
               top: "50%",
               left: "50%",
               width: "50%",
-              minWidth: "250px",
               transform: "translate(-50%,-50%)",
               fontSize: "2em",
             }}
           >
             <input
               type="search"
-              class="form-control  form-control-lg my-3"
-              placeholder="Enter keyword, eg. chicken"
+              className="form-control  form-control-lg my-3"
+              placeholder="Enter keyword..."
               aria-label="Search"
               aria-describedby="search-addon"
               style={{
                 backgroundColor: "rgba(255,255,255,0.8)",
                 outline: "none",
                 fontSize: "0.8em",
+                minWidth: "250px",
               }}
               id="searchInput"
-              onChange={(e) => handleInputChange(e)}
+              onChange={(e) => setInputQuery(e.target.value)}
             />
-            <button type="button" class="btn btn-dark btn-lg">
+            <MDBBtn color="dark" className="p-0">
               <Link href={`/site/${inputQuery}/1?f=search.php&&crit=s`}>
-                <a className="nav-link px-4 text-white">Search</a>
+                <a className="nav-link text-white px-5 py-3">Search</a>
               </Link>
-            </button>
+            </MDBBtn>
           </div>
 
           <img
-            className="w-100 "
+            className="w-100"
             style={{
               objectFit: "cover",
               objectPosition: "top",
@@ -146,9 +149,9 @@ const Home = () => {
           ></img>
         </div>
         <div className="section about-section text-center py-5 ">
-          <h2 class=" display-5 mb-4">About</h2>
+          <h2 className=" display-5 mb-4">About</h2>
 
-          <p class="w-50 mx-auto">
+          <p className="w-50 mx-auto">
             Use this webpage to search through recipes of all kinds comming from
             all around the world. If you have no specific idea, just type an
             ingredient that you feel like would suit you best. There are lots of
@@ -160,11 +163,11 @@ const Home = () => {
         </div>
 
         <div className="section section-cuisines">
-          <h2 class="text-center display-5">
+          <h2 className="text-center display-5">
             Explore a cuisine of your choice!
           </h2>
-          <ul
-            className="list-group p-5"
+          <MDBListGroup
+            className="list-group py-5"
             style={{
               display: "grid",
               gridGap: "10px",
@@ -175,45 +178,51 @@ const Home = () => {
           >
             {cuisinesList.map((cuisine, index) => {
               return (
-                <Link href={`/site/${cuisine.country}/1?f=filter.php&&crit=a`}>
-                  <li
-                    class="card"
+                <Link
+                  href={`/site/${cuisine.country}/1?f=filter.php&&crit=a`}
+                  key={cuisine + index}
+                >
+                  <MDBListGroupItem
                     key={cuisine.country + index}
-                    style={{
-                      backgroundImage: `url(${cuisine.imageUrl})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      height: "200px",
-                      position: "relative",
-                      cursor: "pointer",
-                    }}
+                    className="p-0"
                   >
-                    <h4
-                      class="text-center p-3 text-white mb-0"
+                    <div
                       style={{
-                        backgroundColor: "rgba(0,0,0,0.5)",
-                        position: "absolute",
-                        bottom: "0",
-                        width: "100%",
-                        letterSpacing: "0.1em",
+                        backgroundImage: `url(${cuisine.imageUrl})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        height: "200px",
+                        position: "relative",
+                        cursor: "pointer",
                       }}
                     >
-                      {cuisine.country}
-                    </h4>
-                  </li>
+                      <h4
+                        className="text-center p-3 text-white mb-0"
+                        style={{
+                          backgroundColor: "rgba(0,0,0,0.5)",
+                          position: "absolute",
+                          bottom: "0",
+                          width: "100%",
+                          letterSpacing: "0.1em",
+                        }}
+                      >
+                        {cuisine.country}
+                      </h4>
+                    </div>
+                  </MDBListGroupItem>
                 </Link>
               );
             })}
-          </ul>
+          </MDBListGroup>
         </div>
-        <div className="section categories-section ">
+        <div className="section categories-section">
           <h2 className="text-center display-5">Other categories</h2>
-          <ul className="list-group " style={{ listStyle: "none" }}>
+          <MDBListGroup className="list-group " style={{ listStyle: "none" }}>
             {bonusCategories.map((cat, index) => {
               const shouldReverseAlign = index % 2;
               return (
-                <li
-                  className="list-item my-5"
+                <MDBListGroupItem
+                  className="my-5 border-0"
                   key={cat.strCategory + index}
                   style={
                     shouldReverseAlign
@@ -222,48 +231,49 @@ const Home = () => {
                           backgroundSize: "contain",
                           backgroundRepeat: "no-repeat",
                           backgroundPosition: "left",
+                          backgroundColor: "rgba(0,0,0,0)",
                         }
                       : {
                           backgroundImage: `url(${bonusCategoriesImgs[index]})`,
                           backgroundSize: "contain",
                           backgroundRepeat: "no-repeat",
                           backgroundPosition: "right",
+                          backgroundColor: "rgba(0,0,0,0)",
                         }
                   }
                 >
-                  <div className="row my-5">
-                    <div
+                  <MDBRow className="my-5">
+                    <MDBCol
+                      md="8"
                       className={
                         shouldReverseAlign
-                          ? "col-md-8 offset-md-3 align-self-center shadow-5 text-center py-3"
-                          : "col-md-8 offset-md-1  align-self-center shadow-5 text-center py-3"
+                          ? "offset-md-3 align-self-center shadow-5 text-center py-3"
+                          : "offset-md-1  align-self-center shadow-5 text-center py-3"
                       }
                       style={{ backgroundColor: "rgba(255,255,255,0.8)" }}
                     >
                       <h3>{cat.strCategory}s</h3>
                       <p className="my-3 p-3">{cat.strCategoryDescription}</p>
-                      <button className="btn btn-dark">
+                      <MDBBtn color="dark">
                         <Link
-                          // href={`/category/filter.php?c=${cat.strCategory}?page=1`}
-                          // href="site/Side/1?f=filter.php"
                           href={`site/${cat.strCategory}/1?f=filter.php&&crit=c`}
                         >
                           <a className="nav-link px-4 text-white">
                             Find recipes
                           </a>
                         </Link>
-                      </button>
-                    </div>
-                  </div>
-                </li>
+                      </MDBBtn>
+                    </MDBCol>
+                  </MDBRow>
+                </MDBListGroupItem>
               );
             })}
-          </ul>
+          </MDBListGroup>
         </div>
-      </Layout>
+      </div>
     );
   } else {
-    return <div>Loading...</div>;
+    return <p>Loading...</p>;
   }
 };
 

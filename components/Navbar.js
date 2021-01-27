@@ -1,85 +1,89 @@
 import Link from "next/link";
 
-const Navbar = () => {
-  return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-5 sticky-top">
-      <div className="container-fluid">
-        <Link href="/">
-          <a className="navbar-brand">First Next!</a>
-        </Link>
+import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavbarToggler,
+  MDBCollapse,
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem,
+} from "mdbreact";
 
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
+import { useState } from "react";
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleCollapse = () => {
+    setIsOpen(!isOpen);
+  };
+  return (
+    <>
+      <MDBNavbar color="elegant-color" dark expand="md" className="mb-5">
+        <MDBNavbarBrand>
+          <strong className="white-text">First Next!</strong>
+        </MDBNavbarBrand>
+        <MDBNavbarToggler onClick={() => toggleCollapse()} />
+        <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
+          <MDBNavbarNav left>
+            <MDBNavItem active>
               <Link href="/">
                 <a className="nav-link px-4">Home</a>
               </Link>
-            </li>
-            <li className="nav-item">
-              <div className="dropdown">
-                <button
-                  className="btn dropdown-toggle py-1 my-1 text-white-50"
-                  type="button"
-                  id="dropdownMenuButton"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                  style={{
-                    textTransform: "capitalize",
-                    boxShadow: "none",
-                    fontSize: "1.05em",
-                  }}
-                >
-                  Meat
-                </button>
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="dropdownMenuButton"
-                >
-                  <li>
-                    <Link href="/site/chicken/1?f=filter.php&&crit=c">
-                      <a className="dropdown-item">Chicken</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/site/beef/1?f=filter.php&&crit=c">
-                      <a className="dropdown-item">Beef</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/site/seafood/1?f=filter.php&&crit=c">
-                      <a className="dropdown-item">Seafood</a>
-                    </Link>
-                  </li>
+            </MDBNavItem>
 
-                  <li>
-                    <Link href="/site/pork/1?f=filter.php&&crit=c">
-                      <a className="dropdown-item">Pork</a>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li className="nav-item">
-              <Link href="/site/vegetarian/1?f=filter.php&&crit=c">
-                <a className="nav-link">Vegetarian</a>
-              </Link>
-            </li>
-
-            <li className="nav-item">
+            <MDBNavItem>
               <Link href="/site/pasta/1?f=filter.php&&crit=c">
                 <a className="nav-link">Pasta</a>
               </Link>
-            </li>
-            <li className="nav-item">
+            </MDBNavItem>
+            <MDBNavItem>
+              <Link href="/site/vegetarian/1?f=filter.php&&crit=c">
+                <a className="nav-link">Vegetarian</a>
+              </Link>
+            </MDBNavItem>
+            <MDBNavItem>
               <Link href="/site/dessert/1?f=filter.php&&crit=c">
                 <a className="nav-link">Desserts</a>
               </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBDropdown>
+                <MDBDropdownToggle nav caret>
+                  <span className="mr-2">Meat</span>
+                </MDBDropdownToggle>
+                <MDBDropdownMenu>
+                  <MDBDropdownItem>
+                    <Link href="/site/chicken/1?f=filter.php&&crit=c">
+                      <a className="dropdown-item">Chicken</a>
+                    </Link>
+                  </MDBDropdownItem>
+                  <MDBDropdownItem>
+                    <Link href="/site/beef/1?f=filter.php&&crit=c">
+                      <a className="dropdown-item">Beef</a>
+                    </Link>
+                  </MDBDropdownItem>
+                  <MDBDropdownItem>
+                    <Link href="/site/seafood/1?f=filter.php&&crit=c">
+                      <a className="dropdown-item">Seafood</a>
+                    </Link>
+                  </MDBDropdownItem>
+
+                  <MDBDropdownItem>
+                    <Link href="/site/pork/1?f=filter.php&&crit=c">
+                      <a className="dropdown-item">Pork</a>
+                    </Link>
+                  </MDBDropdownItem>
+                </MDBDropdownMenu>
+              </MDBDropdown>
+            </MDBNavItem>
+          </MDBNavbarNav>
+        </MDBCollapse>
+      </MDBNavbar>
+    </>
   );
 };
 

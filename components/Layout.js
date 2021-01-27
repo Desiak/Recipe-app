@@ -1,13 +1,20 @@
 import Head from "next/head";
 import Navbar from "./Navbar";
 import { useEffect } from "react";
+import {
+  MDBCol,
+  MDBContainer,
+  MDBRow,
+  MDBFooter,
+  MDBIcon,
+  MDBBtn,
+  MDBInput,
+} from "mdbreact";
 
-// Navbar: Home Meat(dropdown) Vege Desserts Search
-//Subpage: search form desciption, results
 const Layout = (props) => {
   useEffect(() => {
     window.addEventListener("scroll", (e) => {
-      const bgImage = document.querySelector(".background-image");
+      const bgImage = document.querySelector(".bg");
 
       if (bgImage) {
         bgImage.style.transform = `translateY(${window.pageYOffset * 0.8}px)`;
@@ -18,18 +25,10 @@ const Layout = (props) => {
     <div className="main " style={{ position: "relative", overflow: "hidden" }}>
       <Head>
         <title>First Next!</title>
-        <link
-          href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.css"
-          rel="stylesheet"
-        />
-        <script
-          type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.js"
-        ></script>
       </Head>
       <Navbar></Navbar>
       <div
-        className="background-image"
+        className="bg"
         style={{
           backgroundImage:
             "url(https://lamtourspanama.com/wp-content/uploads/2020/01/food-pattern-free-img.png)",
@@ -41,48 +40,64 @@ const Layout = (props) => {
           width: "100%",
         }}
       ></div>
-      <div
-        className="container pb-5"
+      <MDBContainer
         style={{ backgroundColor: "rgba(255,255,255,0.95)" }}
+        className="pb-5"
       >
         {props.children}
-      </div>
-      <footer class="bg-light text-center text-lg-start">
-        <div class="container p-4">
-          <div class="row">
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-              <h5 class="text-uppercase">Footer text</h5>
+      </MDBContainer>
+      <MDBFooter color="elegant-color" className="font-small pt-4 mt-4">
+        <MDBContainer className="text-center text-md-left">
+          <MDBRow>
+            <MDBCol md="6">
+              <h5 className="text-uppercase text-center mb-3">Contact</h5>
 
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
-                atque ea quis molestias. Fugiat pariatur maxime quis culpa
-                corporis vitae repudiandae aliquam voluptatem veniam, est atque
-                cumque eum delectus sint!
-              </p>
-            </div>
+              <form>
+                <MDBInput label="Your e-mail" type="email" />
+                <MDBInput type="textarea" label="Message" outline />
+                <MDBBtn
+                  type="submit"
+                  color="warning"
+                  className="btn-block mb-3"
+                >
+                  Send
+                </MDBBtn>
+              </form>
+            </MDBCol>
+            <MDBCol md="6" className="text-center">
+              <h5 className="text-uppercase text-center mb-3">
+                Follow on social media:
+              </h5>
+              <MDBRow className="h-75">
+                <MDBCol md="6" className="align-self-center">
+                  <MDBBtn color="dark">
+                    <MDBIcon fab icon="facebook" size="5x" />
+                  </MDBBtn>
+                </MDBCol>
 
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-              <h5 class="text-uppercase">Footer text</h5>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
-                atque ea quis molestias. Fugiat pariatur maxime quis culpa
-                corporis vitae repudiandae aliquam voluptatem veniam, est atque
-                cumque eum delectus sint!
-              </p>
-            </div>
-          </div>
+                <MDBCol md="6" className="align-self-center">
+                  <MDBBtn color="dark">
+                    <MDBIcon fab icon="instagram" size="5x" />
+                  </MDBBtn>
+                </MDBCol>
+                <MDBCol md="6" className="align-self-center">
+                  <MDBBtn color="dark">
+                    <MDBIcon fab icon="youtube" size="5x" />
+                  </MDBBtn>
+                </MDBCol>
+                <MDBCol md="6" className="align-self-center">
+                  <MDBBtn color="dark">
+                    <MDBIcon fab icon="twitter" size="5x" />
+                  </MDBBtn>
+                </MDBCol>
+              </MDBRow>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+        <div className="footer-copyright text-center py-3">
+          Developed by Desiak
         </div>
-
-        <div
-          class="text-center p-3"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-        >
-          <a class="text-dark" href="https://mdbootstrap.com/">
-            MDBootstrap.com
-          </a>
-        </div>
-      </footer>
+      </MDBFooter>
     </div>
   );
 };
