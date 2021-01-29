@@ -173,7 +173,9 @@ const Page = () => {
             <h3 className="w-100 text-center">
               Apparently, nothing was found...
             </h3>
-            <MDBBtn color="dark">Back to homepage</MDBBtn>
+            <Link href="/">
+              <MDBBtn color="dark">Back to homepage</MDBBtn>
+            </Link>
           </div>
         </MDBCol>
       </MDBRow>

@@ -256,7 +256,7 @@ const Home = () => {
                         }
                   }
                 >
-                  <MDBRow className="my-5">
+                  <MDBRow className="mb-5">
                     <MDBCol
                       md="8"
                       className={
