@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 import {
   MDBCol,
@@ -12,7 +13,7 @@ import {
   MDBBadge,
 } from "mdbreact";
 
-export default function FullRecipe() {
+const FullRecipe = () => {
   const router = useRouter();
   const { id } = router.query;
   const [meal, setMeal] = useState(null);
@@ -55,14 +56,17 @@ export default function FullRecipe() {
     return (
       <MDBContainer>
         <div className="justify-content-center text-center">
-          <img
-            src={meal.strMealThumb}
-            alt="meal image"
-            height="300px"
-            style={{ objectFit: "cover", width: "80%" }}
-            className="mb-4"
-          ></img>
-
+          <div
+            className="mx-auto mb-4"
+            style={{ width: "80%", height: "300px", position: "relative" }}
+          >
+            <Image
+              src={meal.strMealThumb}
+              alt="meal image"
+              layout="fill"
+              objectFit="cover"
+            ></Image>
+          </div>
           <h1>{meal.strMeal}</h1>
           {mealTags.map((tag) => (
             <MDBBadge
@@ -139,4 +143,6 @@ export default function FullRecipe() {
   } else {
     return <div>Loading...</div>;
   }
-}
+};
+
+export default FullRecipe;

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+
 import {
   MDBBtn,
   MDBListGroup,
@@ -14,62 +16,62 @@ const Home = () => {
     {
       country: "American",
       imageUrl:
-        "https://www.smh.com.au/content/dam/images/g/q/g/o/m/7/image.imgtype.articleLeadwide.620x349.png/1469766176792.png",
+        "https://images.unsplash.com/photo-1604908815662-f2755725e687?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80",
     },
     {
       country: "British",
       imageUrl:
-        "https://www.expatica.com/app/uploads/sites/10/2020/03/Full-English%E2%80%99-breakfast.jpg",
+        "https://images.unsplash.com/photo-1550304939-ee0be36f980f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
     },
     {
       country: "Chinese",
       imageUrl:
-        "https://www.thenationalnews.com/image/policy:1.884982:1562830908/RM_20190703_DESICHINESE_20.jpg?f=16x9&w=1200&$p$f$w=dfb357e",
+        "https://images.unsplash.com/photo-1561194673-7093aadc597d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
     },
     {
       country: "French",
       imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/6/6a/Jacques_Lameloise%2C_escab%C3%A8che_d%27%C3%A9crevisses_sur_gaspacho_d%27asperge_et_cresson.jpg",
+        "https://images.unsplash.com/photo-1587723536798-1d3e24a1b4c3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
     },
     {
       country: "Greek",
       imageUrl:
-        "https://hips.hearstapps.com/del.h-cdn.co/assets/17/22/1496245051-delish-greek-power-bowls-1.jpg",
+        "https://images.pexels.com/photos/6065179/pexels-photo-6065179.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     },
     {
       country: "Indian",
       imageUrl:
-        "https://images.ctfassets.net/3s5io6mnxfqz/6ZImCEzx6UuvuKaAiZEDDN/50479ee4a0902deb4eb1bab720ce248a/image1.jpg",
+        "https://images.pexels.com/photos/4224304/pexels-photo-4224304.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     },
     {
       country: "Italian",
       imageUrl:
-        "https://www.englishclub.com/images/vocabulary/food/italian/italian-food-640.jpg",
+        "https://images.unsplash.com/photo-1529312266912-b33cfce2eefd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
     },
     {
       country: "Japanese",
       imageUrl:
-        "https://i.ndtvimg.com/i/2016-04/japanese-food-625_625x406_81461928658.jpg",
+        "https://images.unsplash.com/photo-1580442151529-343f2f6e0e27?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
     },
     {
       country: "Mexican",
       imageUrl:
-        "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/best_and_worst_mexican_dishes_slideshow/493ss_thinkstock_rf_deluxe_burrito.jpg",
+        "https://images.unsplash.com/photo-1602097944182-c43423a8056d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80",
     },
     {
       country: "Spanish",
       imageUrl:
-        "https://lp-cms-production.imgix.net/image_browser/FoodScene_Ca%CC%81diz-3a1236b97db6.jpg?auto=format&fit=crop&sharp=10&vib=20&ixlib=react-8.6.4&w=850",
+        "https://images.pexels.com/photos/4194390/pexels-photo-4194390.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     },
     {
       country: "Thai",
       imageUrl:
-        "https://www.englishclub.com/images/vocabulary/food/thai/thai-food.jpg",
+        "https://images.unsplash.com/photo-1548943487-a2e4e43b4853?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
     },
     {
       country: "Vietnamese",
       imageUrl:
-        "https://www.gannett-cdn.com/presto/2019/05/02/PPHX/670b4d36-55d3-485f-87b7-8d8de59b12ee-Pho_Thanh_-_Bo_Luc_Lac.jpg?crop=3509,1974,x176,y317&width=660&height=372&format=pjpg&auto=webp",
+        "https://images.unsplash.com/photo-1604228994005-d76f4139be68?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
     },
   ];
   const bonusCategoriesImgs = [
@@ -108,6 +110,8 @@ const Home = () => {
               top: "50%",
               left: "50%",
               width: "50%",
+              minWidth: "250px",
+              zIndex: "2",
               transform: "translate(-50%,-50%)",
               fontSize: "2em",
             }}
@@ -122,42 +126,54 @@ const Home = () => {
                 backgroundColor: "rgba(255,255,255,0.8)",
                 outline: "none",
                 fontSize: "0.8em",
-                minWidth: "250px",
               }}
               id="searchInput"
               onChange={(e) => setInputQuery(e.target.value)}
             />
-            <MDBBtn color="dark" className="p-0">
-              <Link href={`/site/${inputQuery}/1?f=search.php&&crit=s`}>
-                <a className="nav-link text-white px-5 py-3">Search</a>
-              </Link>
-            </MDBBtn>
+
+            <Link href={`/site/${inputQuery}/1?f=search.php&&crit=s`}>
+              <MDBBtn
+                color="dark"
+                className={`${inputQuery.length < 3 ? "disabled" : ""}`}
+              >
+                Search
+              </MDBBtn>
+            </Link>
           </div>
 
-          <img
-            className="w-100"
+          <div
+            className="bg"
             style={{
-              objectFit: "cover",
-              objectPosition: "top",
+              position: "relative",
+              width: "100%",
               height: "86vh",
+              zIndex: "1",
             }}
-            src="https://cdn.pixabay.com/photo/2016/11/29/11/15/breakfast-1869132_1280.jpg"
-          ></img>
+          >
+            <Image
+              src="https://cdn.pixabay.com/photo/2016/11/29/11/15/breakfast-1869132_1280.jpg"
+              layout="fill"
+              alt="background image"
+              objectFit="cover"
+            ></Image>
+          </div>
         </div>
-        <div className="section about-section text-center py-5 ">
-          <h2 className=" display-5 mb-4">About</h2>
+        <MDBRow>
+          <MDBCol md="6" className="text-center offset-md-3 my-4">
+            <h2 className=" display-5 mb-4">About</h2>
 
-          <p className="w-50 mx-auto">
-            Use this webpage to search through recipes of all kinds comming from
-            all around the world. If you have no specific idea, just type an
-            ingredient that you feel like would suit you best. There are lots of
-            recipes both for meat-eaters and for vegetarians as well! Each
-            recipe contains specific instructions and video tutorial to make
-            widening your coulinary horizons even easier! Ingredients list is
-            also supplied, so, before you start, make sure to get them all!
-          </p>
-        </div>
-
+            <p className="mx-auto">
+              Use this webpage to search through recipes of all kinds comming
+              from all around the world. If you have no specific idea, just type
+              an ingredient that you feel like would suit you best. There are
+              lots of recipes both for meat-eaters and for vegetarians as well!
+              Each recipe contains specific instructions and video tutorial to
+              make widening your coulinary horizons even easier! Ingredients
+              list is also supplied, so, before you start, make sure to get them
+              all!
+            </p>
+          </MDBCol>
+        </MDBRow>
         <div className="section section-cuisines">
           <h2 className="text-center display-5">
             Explore a cuisine of your choice!
@@ -166,7 +182,6 @@ const Home = () => {
             className="list-group py-5"
             style={{
               display: "grid",
-              gridGap: "10px",
               gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
               margin: "0",
               listStyle: "none",
@@ -184,14 +199,17 @@ const Home = () => {
                   >
                     <div
                       style={{
-                        backgroundImage: `url(${cuisine.imageUrl})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
                         height: "200px",
                         position: "relative",
                         cursor: "pointer",
                       }}
                     >
+                      <Image
+                        src={cuisine.imageUrl}
+                        alt="image cuisine"
+                        layout="fill"
+                        objectFit="cover"
+                      ></Image>
                       <h4
                         className="text-center p-3 text-white mb-0"
                         style={{
@@ -265,7 +283,11 @@ const Home = () => {
       </div>
     );
   } else {
-    return <p>Loading...</p>;
+    return (
+      <div className="spinner-border" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+    );
   }
 };
 

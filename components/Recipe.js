@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+
 import {
   MDBListGroupItem,
   MDBCard,
@@ -29,11 +31,14 @@ const Recipe = (props) => {
     >
       <Link href={`/recipe/${props.meal.idMeal}`}>
         <MDBCard className="h-100">
-          <MDBCardImage
+          <Image
             src={props.meal.strMealThumb}
-            className="card-img-top"
-            alt="recipe-image"
-          ></MDBCardImage>
+            alt="recipe-thumbnail"
+            width={200}
+            height={200}
+            layout="responsive"
+            objectFit="cover"
+          ></Image>
           <MDBCardBody className="d-flex align-items-center justify-content-center">
             <MDBCardTitle className="text-center">{recipeTitle}</MDBCardTitle>
           </MDBCardBody>
