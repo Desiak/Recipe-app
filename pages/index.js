@@ -284,8 +284,10 @@ const Home = () => {
     );
   } else {
     return (
-      <div className="spinner-border" role="status">
-        <span className="sr-only">Loading...</span>
+      <div style={{ minHeight: "100vh" }}>
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
       </div>
     );
   }

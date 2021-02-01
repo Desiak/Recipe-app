@@ -22,7 +22,10 @@ const Layout = (props) => {
     });
   }, []);
   return (
-    <div className="main " style={{ position: "relative", overflow: "hidden" }}>
+    <div
+      className="main "
+      style={{ position: "relative", overflow: "hidden", minHeight: "100vh" }}
+    >
       <Head>
         <title>First Next!</title>
       </Head>
@@ -46,7 +49,11 @@ const Layout = (props) => {
       >
         {props.children}
       </MDBContainer>
-      <MDBFooter color="elegant-color" className="font-small pt-4 mt-4">
+      <MDBFooter
+        color="elegant-color"
+        className="font-small pt-4 mt-4"
+        // style={{ position: "absolute", bottom: "0" }}
+      >
         <MDBContainer className="text-center text-md-left">
           <MDBRow>
             <MDBCol md="6">

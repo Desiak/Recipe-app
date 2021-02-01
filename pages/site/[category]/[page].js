@@ -25,7 +25,6 @@ const Page = () => {
     const data = await fetch(url);
     const res = await data.json();
     const allRecipes = res.meals;
-
     if (allRecipes) {
       setRecipesTotal(allRecipes.length);
       setTotalNumberOfPages(
@@ -44,6 +43,8 @@ const Page = () => {
           return <Recipe key={recipe.idMeal} meal={recipe}></Recipe>;
         })
       );
+    } else {
+      setRecipesTotal(null);
     }
   };
 
@@ -154,7 +155,7 @@ const Page = () => {
         ) : null}
       </div>
     );
-  } else {
+  } else if (recipesTotal === null) {
     return (
       <MDBRow>
         <MDBCol sm="4">
@@ -179,6 +180,14 @@ const Page = () => {
           </div>
         </MDBCol>
       </MDBRow>
+    );
+  } else {
+    return (
+      <div style={{ minHeight: "100vh" }}>
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
     );
   }
 };
