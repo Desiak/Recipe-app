@@ -13,11 +13,12 @@ import {
 
 const Layout = (props) => {
   useEffect(() => {
-    window.addEventListener("scroll", (e) => {
-      const bgImage = document.querySelector(".bg");
-
-      if (bgImage) {
-        bgImage.style.transform = `translateY(${window.pageYOffset * 0.8}px)`;
+    window.addEventListener("scroll", () => {
+      if (window.innerWidth > 768) {
+        const bgImage = document.querySelector(".bg");
+        if (bgImage) {
+          bgImage.style.transform = `translateY(${window.pageYOffset * 0.8}px)`;
+        }
       }
     });
   }, []);
@@ -49,11 +50,7 @@ const Layout = (props) => {
       >
         {props.children}
       </MDBContainer>
-      <MDBFooter
-        color="elegant-color"
-        className="font-small pt-4 mt-4"
-        // style={{ position: "absolute", bottom: "0" }}
-      >
+      <MDBFooter color="elegant-color" className="font-small pt-4 mt-4">
         <MDBContainer className="text-center text-md-left">
           <MDBRow>
             <MDBCol md="6">
