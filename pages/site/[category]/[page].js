@@ -95,7 +95,7 @@ const Page = () => {
 
         break;
       default:
-        critLabel = "NOTIHNG";
+        critLabel = "Sorry, wrong parameter: ";
     }
     return critLabel;
   };
@@ -103,7 +103,7 @@ const Page = () => {
     return (
       <div>
         <h1>
-          {switchResultsHeader()}{" "}
+          {switchResultsHeader()}
           <span className="text-capitalize">{category}</span>
         </h1>
         <p className="results-total">Found {recipesTotal} recipes</p>

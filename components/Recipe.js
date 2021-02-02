@@ -2,13 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import {
-  MDBListGroupItem,
-  MDBCard,
-  MDBCardImage,
-  MDBCardBody,
-  MDBCardTitle,
-} from "mdbreact";
+import { MDBListGroupItem, MDBCard, MDBCardBody, MDBCardTitle } from "mdbreact";
 
 const Recipe = (props) => {
   const recipeTitle = props.meal.strMeal;

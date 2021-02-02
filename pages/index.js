@@ -99,10 +99,7 @@ const Home = () => {
   if (bonusCategories.length > 0) {
     return (
       <div>
-        <div
-          className="section search-section"
-          style={{ position: "relative" }}
-        >
+        <div className="search-section" style={{ position: "relative" }}>
           <div
             className="d-flex justify-content-center align-items-center flex-wrap p-4"
             style={{
@@ -174,7 +171,7 @@ const Home = () => {
             </p>
           </MDBCol>
         </MDBRow>
-        <div className="section section-cuisines">
+        <div className="section-cuisines">
           <h2 className="text-center display-5">
             Explore a cuisine of your choice!
           </h2>
@@ -229,7 +226,7 @@ const Home = () => {
             })}
           </MDBListGroup>
         </div>
-        <div className="section categories-section">
+        <div className="categories-section">
           <h2 className="text-center display-5">Other categories</h2>
           <MDBListGroup className="list-group " style={{ listStyle: "none" }}>
             {bonusCategories.map((cat, index) => {
